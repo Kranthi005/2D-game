@@ -15,8 +15,11 @@ public class GamePanel extends JPanel implements Runnable{
     final int screenHeight = tileSize * maxScreenRow;
 
     KeyHandler keyH = new KeyHandler();
-
     Thread gameThread;
+
+    int playerX = 100;
+    int playerY = 100;
+    int playerSpeed = 5;
 
     public GamePanel(){
         this.setPreferredSize(new Dimension(screenWidth,screenHeight));
@@ -53,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         g2.setColor(Color.white);
 
-        g2.fillRect(100,100,tileSize,tileSize);
+        g2.fillRect(playerX,playerY,tileSize,tileSize);
 
         g2.dispose();
     }
