@@ -11,4 +11,10 @@ public class Player extends Entity{
         this.keyH = keyH;
         this.gp = gp;
     }
+
+    void setDefaultValues(){
+        x = 100;
+        y = 100;
+        speed = 5;
+    }
 }
