@@ -31,5 +31,17 @@ public class GamePanel extends JPanel implements Runnable{
     @Override
     public void run() {
 
+        update();
+
+        repaint();
+    }
+
+    public void update(){}
+
+    @Override
+    public void paintComponents(Graphics g) {
+        super.paintComponents(g);
+
+        Graphics2D g2 = (Graphics2D) g;
     }
 }
