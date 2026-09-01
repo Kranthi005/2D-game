@@ -16,6 +16,7 @@ public class Player extends Entity{
         this.gp = gp;
 
         setDefaultValues();
+        getPlayerImage();
     }
 
     void setDefaultValues(){
@@ -29,15 +30,15 @@ public class Player extends Entity{
         try {
             for (int i = 0; i < 8; i++) {
                 down[i] = ImageIO.read(
-                        getClass().getResourceAsStream("/player/WalkDown" + (i + 1) + ".png"));
+                        getClass().getResourceAsStream("/Player/WalkDown/walk_down_" + (i + 1) + ".png"));
                 up[i] = ImageIO.read(
-                        getClass().getResourceAsStream("/player/WalkDown" + (i + 1) + ".png"));
+                        getClass().getResourceAsStream("/Player/WalkDown/walk_down_" + (i + 1) + ".png"));
 
                 left[i] = ImageIO.read(
-                        getClass().getResourceAsStream("/player/WalkDown" + (i + 1) + ".png"));
+                        getClass().getResourceAsStream("/Player/WalkDown/walk_down_" + (i + 1) + ".png"));
 
                 right[i] = ImageIO.read(
-                        getClass().getResourceAsStream("/player/WalkDown" + (i + 1) + ".png"));
+                        getClass().getResourceAsStream("/Player/WalkDown/walk_down_" + (i + 1) + ".png"));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -58,6 +59,18 @@ public class Player extends Entity{
         } else if (keyH.rightPressed) {
             direction = "right";
             x+=speed;
+        }
+
+        spriteCounter++;
+
+        if (spriteCounter > 10) {
+            spriteNum++;
+
+            if (spriteNum >= 8) {
+                spriteNum = 0;
+            }
+
+            spriteCounter = 0;
         }
     }
 
@@ -82,6 +95,6 @@ public class Player extends Entity{
                     break;
             }
 
-            g2.drawImage(image, x, y, null);
+            g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
         }
 }
