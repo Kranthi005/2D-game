@@ -21,11 +21,23 @@ public class Player extends Entity{
         x = 100;
         y = 100;
         speed = 5;
+        direction = "down";
     }
 
-    public void getPlayerImage(){
+    public void getPlayerImage() {
         try {
-            down[0] = ImageIO.read(getClass().getResourceAsStream("/player/walk_down_1"));
+            for (int i = 0; i < 8; i++) {
+                down[i] = ImageIO.read(
+                        getClass().getResourceAsStream("/player/walk_down_" + (i + 1) + ".png"));
+                up[i] = ImageIO.read(
+                        getClass().getResourceAsStream("/player/walk_up_" + (i + 1) + ".png"));
+
+                left[i] = ImageIO.read(
+                        getClass().getResourceAsStream("/player/walk_left_" + (i + 1) + ".png"));
+
+                right[i] = ImageIO.read(
+                        getClass().getResourceAsStream("/player/walk_right_" + (i + 1) + ".png"));
+            }
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
