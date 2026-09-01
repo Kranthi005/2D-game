@@ -28,15 +28,15 @@ public class Player extends Entity{
         try {
             for (int i = 0; i < 8; i++) {
                 down[i] = ImageIO.read(
-                        getClass().getResourceAsStream("/player/walk_down_" + (i + 1) + ".png"));
+                        getClass().getResourceAsStream("/player/WalkDown" + (i + 1) + ".png"));
                 up[i] = ImageIO.read(
-                        getClass().getResourceAsStream("/player/walk_up_" + (i + 1) + ".png"));
+                        getClass().getResourceAsStream("/player/WalkDown" + (i + 1) + ".png"));
 
                 left[i] = ImageIO.read(
-                        getClass().getResourceAsStream("/player/walk_left_" + (i + 1) + ".png"));
+                        getClass().getResourceAsStream("/player/WalkDown" + (i + 1) + ".png"));
 
                 right[i] = ImageIO.read(
-                        getClass().getResourceAsStream("/player/walk_right_" + (i + 1) + ".png"));
+                        getClass().getResourceAsStream("/player/WalkDown" + (i + 1) + ".png"));
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
@@ -46,19 +46,21 @@ public class Player extends Entity{
     public void update(){
 
         if(keyH.upPressed){
+            direction = "up";
             y-=speed;
         } else if (keyH.downPressed) {
+            direction = "down";
             y+=speed;
         } else if (keyH.leftPressed) {
+            direction = "left";
             x -= speed;
         } else if (keyH.rightPressed) {
+            direction = "right";
             x+=speed;
         }
     }
 
     public void draw(Graphics2D g2){
-        g2.setColor(Color.white);
 
-        g2.fillRect(x,y,gp.tileSize,gp.tileSize);
     }
 }
