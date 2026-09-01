@@ -3,6 +3,7 @@ package entity;
 import main.GamePanel;
 import main.KeyHandler;
 
+import javax.imageio.ImageIO;
 import java.awt.*;
 
 public class Player extends Entity{
@@ -20,6 +21,14 @@ public class Player extends Entity{
         x = 100;
         y = 100;
         speed = 5;
+    }
+
+    public void getPlayerImage(){
+        try {
+            down[0] = ImageIO.read(getClass().getResourceAsStream("/player/walk_down_1"));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void update(){
