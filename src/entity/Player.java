@@ -5,6 +5,7 @@ import main.KeyHandler;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.image.BufferedImage;
 
 public class Player extends Entity{
     GamePanel gp;
@@ -61,6 +62,26 @@ public class Player extends Entity{
     }
 
     public void draw(Graphics2D g2){
+            BufferedImage image = null;
 
-    }
+            switch (direction) {
+                case "up":
+                    image = up[spriteNum];
+                    break;
+
+                case "down":
+                    image = down[spriteNum];
+                    break;
+
+                case "left":
+                    image = left[spriteNum];
+                    break;
+
+                case "right":
+                    image = right[spriteNum];
+                    break;
+            }
+
+            g2.drawImage(image, x, y, null);
+        }
 }
