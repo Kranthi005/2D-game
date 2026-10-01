@@ -38,9 +38,7 @@ public class Player extends Entity {
 
         try {
 
-            BufferedImage spriteSheet = ImageIO.read(
-                    getClass().getResourceAsStream("/Player/PlayerWalk.png")
-            );
+            BufferedImage spriteSheet = ImageIO.read(getClass().getResourceAsStream("/Player/PlayerWalk.png"));
 
             int frameWidth = 40;
             int frameHeight = 48;
